@@ -20,7 +20,7 @@ Este proyecto es una galeria interactiva de fotografías con diseño responsivo
 - JavaScript (Vanilla JS)
 
 ## Estructura del Proyecto
-
+```text
 📁 Proyecto
 │
 ├── 📁 blocks/
@@ -41,6 +41,8 @@ Este proyecto es una galeria interactiva de fotografías con diseño responsivo
 │
 ├── 📄 index.html
 └── 📄 README.md
+
+```
 
 - **blocks/** → componentes CSS (metodología BEM)
 - **pages/** → archivo principal de estilos (index.css)
