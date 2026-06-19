@@ -51,22 +51,24 @@
 
 .popup__button:disabled {
   border: 1px solid #C4C4C4;
+  border-radius: 2px;
   padding: 14px 92px;
   background-color: #FFFFFF;
   color: #C4C4C4;
   cursor: default;
   font-size: 14px;
+  margin-bottom:0px;
 }
 
 .popup__button {
+  
   font-size:14px;
   width: 100%;
   padding: 14px 92px;
   font-family: Inter;
   background-color: #000000;
   color: #fff;
-  border-radius: 2px;
-  border: none;
+  border: 1px solid #000000;
   cursor: pointer;
   margin-bottom:0px;
 }
