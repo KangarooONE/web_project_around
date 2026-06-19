@@ -1,13 +1,13 @@
-console.log('JS cargó');
-
-
-
 const editButton = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.popup__close-button');
 const saveButton = document.querySelector('.popup__button');
 const nameInput = document.querySelector('#name-input');
 const aboutInput = document.querySelector('#about-input');
 const popup = document.querySelector('.popup_type_edit-profile');
+
+const form = document.querySelector('.popup__form');
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
 
 function toggleButtonState() {
   const isFilled = 
@@ -17,14 +17,31 @@ function toggleButtonState() {
   saveButton.disabled = !isFilled;
 }
 
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileDescription.textContent = aboutInput.value;
+
+  closePopup();
+}
+
+function openPopup() {
+
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileDescription.textContent;
+
+  toggleButtonState();
+  popup.classList.add('popup_opened');
+}
+
+function closePopup() {
+  popup.classList.remove('popup_opened');
+}
+
+editButton.addEventListener('click', openPopup);
+closeButton.addEventListener('click', closePopup);
+form.addEventListener('submit', handleProfileFormSubmit);
 nameInput.addEventListener('input', toggleButtonState);
 aboutInput.addEventListener('input', toggleButtonState);
-
-
-editButton.addEventListener('click', () => {
-  popup.classList.add('popup_opened');
-});
-
-closeButton.addEventListener('click', () => {
-  popup.classList.remove('popup_opened');
-});
+toggleButtonState();
