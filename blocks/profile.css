@@ -1,151 +1,133 @@
+/* ========================================
+   Profile
+   ======================================== */
+
 .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 42px 19px 36px;
   max-width: 880px;
+  padding: 42px 19px 36px;
 }
 
+/* Avatar */
+.profile__avatar-wrapper{
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom:30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
 .profile__avatar {
   width: 100%;
   height: 100%;
-  display:block;
+  display: block;
   object-fit: cover;
 }
 
-.profile__avatar-wrapper{
-  position: relative;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 120px;
-  height: 120px;
-  margin-bottom:30px;
-}
+/* Profile Info */
 .profile__name-row{
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
-  font-family: inter;
-}
-
-
-.profile__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
 }
 
 .profile__name {
+  margin: 0;
   font-size: 22px;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  line-height: 100%;
- margin: 0;
   
   color: #fff;
-}
-
-.profile__edit-button {
-  background: url(../images/edit.png) no-repeat center;
-  background-size:contain;
-  width: 10px;
-  height: 15px;
-  border: 1px solid #fff;
-  cursor: pointer;
-  background-color: #000;
-  color: #fff;
-}
-
-.profile__edit-button:hover {
-  border: 1px solid #545454;
-  cursor: pointer;
-  background-color: #000;
-  color: #545454;
+  line-height: 1;
 }
 
 .profile__description {
+  margin: 14px 0 0;
+  
   font-size: 14px;
-  color: #ffffff;
   font-weight: 400;
+  color: #fff;
   text-align: center;
-  font-family: Inter;
-  margin-top:14px;
-  margin-bottom: 0px;
+}
+
+/* Buttons */
+.profile__edit-button {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: url(../images/Edit1.png) no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  background: url(../images/Edit2.png) no-repeat center;
+  background-size: contain;
 }
 
 .profile__add-button {
-    background: url(../images/Addbutton.png) no-repeat center;
-    border: 2px solid #fff;
-    color: #fff;
-    background-color: #000000;
-    width: 100%;
-    max-width: 282px;
-    height: 50px;
-    cursor: pointer;
-    margin-top: 36px;
+  width: 100%;
+  max-width: 282px;
+  height: 50px;
+  margin-top: 36px;
+  border: 2px solid #fff;
+  background: url(../images/Add11.png) no-repeat center;
+  background-size: 16px 16px;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {
-    border: 2px solid #545454;
-    color:  #545454;
+  border-color: #545454;
+  background: url(../images/Add2.png) no-repeat center;
+  background-size: 16px 16px;
+  
 }
 
+/* ========================================
+   Desktop
+   ======================================== */
 @media (min-width: 1024px) {
 .profile{
-  width: 100%;
-  margin-inline: auto;
-  padding: 40px 50px;
-  display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 40px 50px;
+  margin: 0 auto;
 }
-  .profile__avatar-wrapper {
-    margin-right: 0px;
-    margin-bottom:0px;
-    margin-right:30px;
-  }
-.profile__header{
-  display: flex;
-  align-items: center;
-  margin-left:0px;
-}  
-.profile__info {
-    text-align: left;
-    margin-left:0px;
-  }
 
-.profile__name-row {
-    justify-content: flex-start;
-  }
+.profile__avatar-wrapper {
+  margin: 0 30px 0 0;
+}
 
 .profile__name{
-  font-size:42px;
+  font-size: 42px;
   line-height: 48px;
-  margin-bottom:0px;
-
 }
+
 .profile__description{
-  font-size:18px;
-  text-align: left;
+  font-size: 18px;
   margin-top: 16px;
-  
-  
+  text-align: left;
 }
-.profile__add-button{
-align-self: center;
-width:150px;
-height:50px;
-margin-left:auto;
-margin-top: 0px;
 
+.profile__name-row {
+  justify-content: flex-start;
+  gap: 18px;
 }
+
+.profile__edit-button {
+  width: 24px;
+  height: 24px;
+}
+.profile__add-button:hover{
+  background-size: 24px 24px;
+}
+
 .profile__add-button{
-  background: url(../images/Addbutton2.png) no-repeat center;
+  width: 150px;
+  margin: 0 0 0 auto;
+  background-size: 24px 24px;
 }
 
 
