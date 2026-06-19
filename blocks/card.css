@@ -4,6 +4,22 @@
   margin: auto
 }
 
+.card__like-button{
+  background: url(../images/Corazon1.svg) no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 21px;
+  height: 19px;
+
+}
+.card__like-button:hover{
+  background: url(../images/corazonhover.svg);
+  
+}
+.card__like-button-active{
+  background:url(../images/CorazondesActive.svg) no-repeat center;
+}
 .cards__list {
   list-style: none;
   margin: 0;
@@ -11,7 +27,7 @@
   padding: 0;
 
   display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
 
   gap: 20px;
 }
