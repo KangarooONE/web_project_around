@@ -9,20 +9,27 @@
 
 
 .profile__avatar {
+  width: 100%;
+  height: 100%;
+  display:block;
+  object-fit: cover;
+}
+
+.profile__avatar-wrapper{
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+  margin-bottom:30px;
 }
 .profile__name-row{
   display: flex;
-   align-items: center;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
+  font-family: inter;
 }
-.profile__info {
-  padding-top: 30px; 
-  padding-bottom: 36px;
-}
+
 
 .profile__header {
   display: flex;
@@ -63,19 +70,24 @@
 
 .profile__description {
   font-size: 14px;
-  color: #fff;
+  color: #ffffff;
+  font-weight: 400;
   text-align: center;
+  font-family: Inter;
+  margin-top:14px;
+  margin-bottom: 0px;
 }
 
 .profile__add-button {
+    background: url(/images/Addbutton.png) no-repeat center;
     border: 2px solid #fff;
-    font-size: 24px;
     color: #fff;
-    background-color: #000;
+    background-color: #000000;
     width: 100%;
+    max-width: 282px;
     height: 50px;
     cursor: pointer;
-    
+    margin-top: 36px;
 }
 
 .profile__add-button:hover {
@@ -86,42 +98,35 @@
 @media (min-width: 1024px) {
 .profile{
   width: 100%;
-  max-width: 880px;
-  max-height: 120px;
   margin-inline: auto;
-  
-  
+  padding: 40px 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
- 
 }
   .profile__avatar-wrapper {
-    margin-right: 30px;
+    margin-right: 0px;
+    margin-bottom:0px;
+    margin-right:30px;
   }
-  
-  .profile__header {
-    margin-top: 0;
-    
-  }
-
-  .profile__info {
+.profile__header{
+  display: flex;
+  align-items: center;
+  margin-left:0px;
+}  
+.profile__info {
     text-align: left;
+    margin-left:0px;
   }
 
-  .profile__name-row {
+.profile__name-row {
     justify-content: flex-start;
   }
-
-  .profile__add-button {
-    margin-left: auto;
-  }
-
 
 .profile__name{
   font-size:42px;
   line-height: 48px;
-  margin:0;
+  margin-bottom:0px;
 
 }
 .profile__description{
@@ -129,22 +134,19 @@
   text-align: left;
   margin-top: 16px;
   
+  
 }
 .profile__add-button{
-
+align-self: center;
 width:150px;
 height:50px;
+margin-left:auto;
+margin-top: 0px;
 
 }
-
+.profile__add-button{
+  background: url(/images/Addbutton2.png) no-repeat center;
 }
 
-
-@media (min-width: 1280px) {
-.profile{
-  max-width: 880px;
-  margin-inline: auto;
-
-}
 
 }

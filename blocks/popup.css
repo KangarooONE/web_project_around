@@ -1,0 +1,124 @@
+.popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup_opened {
+  display: flex;
+}
+
+.popup__container {
+  background-color: #fff;
+  width: 282px;
+  
+  border-radius: 10px;
+  padding: 25px 22px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.popup__title {
+  margin: 0 0 76px;
+  font-size: 18px;
+  font-weight: 900;
+  font-family: Inter;
+}
+
+#name-input{
+  margin-bottom:30px;
+}
+
+.popup__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #C4C4C4;
+  font-family: Inter; 
+  margin-bottom: 46px;
+  font-size: 14px;
+  outline: none;
+  color:#000000;
+  padding-bottom: 9px;
+}
+
+.popup__input::placeholder {
+  color: #c4c4c4;
+  opacity: 1;
+}
+
+.popup__button:disabled {
+  border: 1px solid #C4C4C4;
+  padding: 14px 92px;
+  background-color: #FFFFFF;
+  color: #C4C4C4;
+  cursor: default;
+  font-size: 14px;
+}
+
+.popup__button {
+  font-size:14px;
+  width: 100%;
+  padding: 14px 92px;
+  font-family: Inter;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  margin-bottom:0px;
+}
+
+.popup__close-button {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    background-image: url(/images/Close\ Icon\ small.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 26px;
+    height: 26px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.popup__close-button:hover {
+  background: url(/images/Close\ Icon\ hover.png) no-repeat center;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .popup__close-button {
+    top: -40px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+  .popup__container {
+    width: 430px;
+     
+    padding: 34px 36px 36.51px;
+  }
+  .popup__title {
+    font-size: 24px;
+    margin: 0 0 54px;
+  }
+  .popup__input{
+    margin-bottom: 48px;
+
+  }
+  .popup__button:disabled{
+    font-size: 18px;
+  }
+  .popup__button{
+    font-size: 18px;
+  }
+
+}

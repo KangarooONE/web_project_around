@@ -1,0 +1,26 @@
+.footer {
+  width: calc(100% - 38px);
+  max-width: 880px;
+  margin: 50px auto 36px;
+}
+
+@media (min-width: 500px) {
+  .footer {
+    max-width: 880px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    max-width: 880px;
+  }
+}
+
+.footer__copyright {
+  margin: 0;
+  color: #545454;
+  font-size: 14px;
+  line-height: 1;
+  font-family: Inter;
+}
+
