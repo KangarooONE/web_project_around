@@ -18,6 +18,7 @@
   margin-bottom: 30px;
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .profile__avatar {
@@ -39,6 +40,7 @@
   display: flex;
   align-items: baseline;
   gap: 10px;
+  text-align: center;
 }
 
 .profile__name {
@@ -90,27 +92,42 @@
    ======================================== */
 @media (min-width: 1024px) {
 .profile {
+    display: flex;
     flex-direction: row;
+    
     max-width: 880px;      
     margin: 40px auto 50px;
-    padding: 0;
+    padding: 0 19px;
+    box-sizing: border-box;
+    width: 100%;
   }
 
 .profile__header{
+  display: flex;
   flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .profile__avatar-wrapper {
   margin:0 30px 0 0;
+  flex-shrink: 0; 
 }
 
 .profile__info{
-  margin-right: 165px;
+  margin: 0;
+  min-width: 0;
 }
 
 .profile__name{
   font-size: 42px;
   line-height: 48px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .profile__description{
@@ -120,19 +137,28 @@
 }
 
 .profile__name-row {
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
   gap: 18px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .profile__edit-button {
   width: 24px;
   height: 24px;
   background-size: 24px 24px;
+  flex-shrink: 0;
 }
 
 .profile__add-button{
-  width: 150px; 
-  margin: 0;
+  width: 150px;
+  height: 50px;
+  margin-top: 0;
+
+  margin-left: auto; 
+  flex-shrink: 0;
   background-size: 22px 22px;
 }
 
