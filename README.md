@@ -46,3 +46,5 @@ Para mí, que funcione no es suficiente; tiene que ser elegante por dentro. La e
 │
 ├── 📄 index.html       # Estructura semántica accesible con atributos ARIA
 └── 📄 README.md        # Documentación técnica
+```
+📦 **Mantenido y desarrollado por Juan Delgado** _Proyecto educativo de código abierto enfocado en las buenas prácticas de UI/UX y optimización web._
