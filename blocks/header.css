@@ -1,33 +1,23 @@
-.page{
-    background-color: #000000;
-   
-}
 .header{
- 
-    padding: 28px 27px;
-    border-bottom: 1px solid #545454;
-  
+  padding: 28px 27px;
+  border-bottom: 1px solid #545454;
 }
 
 .header__logo{
-    width: 126px;
-    height: 24px;
+  width: 126px;
+  height: 24px;
+  object-fit: contain;
 }
 
 @media (min-width: 1024px) {
-  .header {
-   max-width: 880px;
-    margin-inline: auto;
-    padding: 45px 0;
-  
+    .header {
+      max-width: 880px;
+      margin-inline: auto;
+      padding: 45px 0;
+    }
 
-    
-   
-  }
-
-  .header__logo {
-    width: 173px;
-    height: 33px;
-    
-  }
+    .header__logo {
+      width: 173px;
+      height: 33px;
+    }
 }

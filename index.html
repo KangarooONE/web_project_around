@@ -6,119 +6,111 @@
   <title>Proyecto Around the U.S</title>
   <link rel="stylesheet" href="./pages/index.css" />
 </head>
-<body>
-<div class="page">
+
+<body class="page">
+
   <header class="header">
-   <img
-   src="./images/logo.png"
-   alt="Logo Around the World"
-   class="header__logo"
-   />
+    <img src="./images/logo.png" alt="Logo Around the World" class="header__logo" />
   </header>
 
-  <section class="profile">
-
-<div class="profile__avatar-wrapper">
-        <img src="./images/jack.jpg" alt="Jacques Cousteau" class="profile__avatar">
+  <main class="page__content">
+    
+    <section class="profile">
+      <div class="profile__avatar-wrapper">
+        <img src="./images/jack.jpg" alt="Jacques Cousteau" class="profile__avatar" />
         <button class="profile__avatar-edit-button" type="button" aria-label="Editar foto"></button>
       </div>
 
       <div class="profile__header">
         <div class="profile__info">
           <div class="profile__name-row">
-            <h1  class="profile__name">Jacques Cousteau</h1>
-          <button 
-          class="profile__edit-button"
-          type="button" 
-          aria-label="Editar perfil"></button>
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button class="profile__edit-button" type="button" aria-label="Editar perfil"></button>
           </div>
-          
-          <p class="profile__description">Explorador</p>   
+          <p class="profile__description">Explorador</p> 
         </div>
+        <button class="profile__add-button" type="button" aria-label="Agregar nueva publicación"></button>
+      </div>
+    </section>
+    
+    <section class="cards">
+      <ul class="cards__list">
         
-      </div>
-      <button class="profile__add-button" aria-label="Agregar nueva publicación"></button>
+        <li class="card">
+          <img src="./images/Yosemite.jpg" alt="Valle de Yosemite" class="card__image" />
+          <div class="card__info">
+            <h2 class="card__title">Valle de Yosemite</h2>
+            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </li>
 
-  </section>
+        <li class="card">
+          <img src="./images/Louise.jpg" alt="Lago Louise" class="card__image" />
+          <div class="card__info">
+            <h2 class="card__title">Lago Louise</h2>
+            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </li>
 
+        <li class="card">
+          <img src="./images/Latemar.jpg" alt="Latemar" class="card__image" />
+          <div class="card__info">
+            <h2 class="card__title">Latemar</h2>
+            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </li>
 
-  <section class="cards">
+        <li class="card">
+          <img src="./images/Calvas.jpg" alt="Montañas Calvas" class="card__image" />
+          <div class="card__info">
+            <h2 class="card__title">Montañas Calvas</h2>
+            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </li>
 
-    <ul class="cards__list">
-    <li class="card">
-      <img src="./images/Yosemite.jpg" alt="Valle de Yosemite" class="card__image">
-      <div class="card__info">
-        <h2 class="card__title">Valle de Yosemite</h2>
-        <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-      </div>
-    </li>
+        <li class="card">
+          <img src="./images/Braies.jpg" alt="Lago di Braies" class="card__image" />
+          <div class="card__info">
+            <h2 class="card__title">Lago di Braies</h2>
+            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </li>
 
-     <li class="card">
-      <img src="./images/Louise.jpg" alt="Lago Louise" class="card__image">
-      <div class="card__info">
-        <h2 class="card__title">Lago Louise</h2>
-        <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-      </div>
-    </li>
+        <li class="card">
+          <img src="./images/Vanois.jpg" alt="Vanois National Park" class="card__image" />
+          <div class="card__info">
+            <h2 class="card__title">Vanois National Park</h2>
+            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+          </div>
+        </li>
 
-     <li class="card">
-      <img src="./images/Latemar.jpg" alt="Latemar" class="card__image">
-      <div class="card__info">
-        <h2 class="card__title">Latemar</h2>
-        <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-      </div>
-    </li>
+      </ul>
+    </section>
 
-     <li class="card">
-      <img src="./images/Calvas.jpg" alt="Montanas Calvas" class="card__image">
-      <div class="card__info">
-        <h2 class="card__title">Montanas Calvas</h2>
-        <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-      </div>
-    </li>
-
-     <li class="card">
-      <img src="./images/Braies.jpg" alt="Lago di Braies" class="card__image">
-      <div class="card__info">
-        <h2 class="card__title">Lago di Braies</h2>
-        <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-      </div>
-    </li>
-
-     <li class="card">
-      <img src="./images/Vanois.jpg" alt="Vanois National Park" class="card__image">
-      <div class="card__info">
-        <h2 class="card__title">Vanois National Park</h2>
-        <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-      </div>
-    </li>
-    </ul>
-  </section>
-  
+  </main> 
 
   <footer class="footer">
-  <p class="footer__copyright">&copy; 2026 Around the U.S.</p>
-</footer>
+    <p class="footer__copyright">&copy; 2026 Around the U.S.</p>
+  </footer>
 
-<div class="popup popup_type_edit-profile">
-      <div class="popup__container">
-        <button type="button" class="popup__close-button" aria-label="Cerrar ventana"></button>
+  <div class="popup popup_type_edit-profile">
+    <div class="popup__container">
+      <button type="button" class="popup__close-button" aria-label="Cerrar ventana"></button>
+      
+      <form class="popup__form" name="editProfileForm" novalidate>
         <h2 class="popup__title">Editar perfil</h2>
-        <form class="popup__form" name="editProfileForm" novalidate>
-          <input id="name-input" type="text" name="name" class="popup__input" placeholder="Nombre" required minlength="2" maxlength="40" />
-          <span class="popup__error" id="name-input-error"></span>
+        
+        <input id="name-input" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Nombre" required minlength="2" maxlength="40" />
+        <span class="popup__error" id="name-input-error"></span>
 
-          <input id="about-input" type="text" name="about" class="popup__input" placeholder="Acerca de mí" required minlength="2" maxlength="200" />
-          <span class="popup__error" id="about-input-error"></span>
+        <input id="about-input" type="text" name="about" class="popup__input popup__input_type_about" placeholder="Acerca de mí" required minlength="2" maxlength="200" />
+        <span class="popup__error" id="about-input-error"></span>
 
-          <button type="submit" class="popup__button" disabled>Guardar</button>
-        </form>
-      </div>
+        <button type="submit" class="popup__button" disabled>Guardar</button>
+      </form>
     </div>
+  </div>
 
-
-</div>
-
-<script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

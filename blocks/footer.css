@@ -1,19 +1,14 @@
+/* ========================================
+   Footer
+   ======================================== */
+
 .footer {
-  width: calc(100% - 38px);
+  width: 100%;
   max-width: 880px;
-  margin: 50px auto 36px;
-}
-
-@media (min-width: 500px) {
-  .footer {
-    max-width: 880px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer {
-    max-width: 880px;
-  }
+  margin-block: 50px 36px;
+  margin-inline: auto;
+  padding-inline: 19px;
+  box-sizing: border-box;
 }
 
 .footer__copyright {
@@ -21,6 +16,4 @@
   color: #545454;
   font-size: 14px;
   line-height: 1;
-  font-family: 'Inter', sans-serif;
 }
-

@@ -1,13 +1,15 @@
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
+
+const popup = document.querySelector('.popup_type_edit-profile');
+const form = document.querySelector('.popup__form');
+const nameInput = document.querySelector('#name-input');
+const aboutInput = document.querySelector('#about-input');
+
 const editButton = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.popup__close-button');
 const saveButton = document.querySelector('.popup__button');
-const nameInput = document.querySelector('#name-input');
-const aboutInput = document.querySelector('#about-input');
-const popup = document.querySelector('.popup_type_edit-profile');
 
-const form = document.querySelector('.popup__form');
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
 
 function toggleButtonState() {
   const isFilled = 
@@ -44,4 +46,3 @@ closeButton.addEventListener('click', closePopup);
 form.addEventListener('submit', handleProfileFormSubmit);
 nameInput.addEventListener('input', toggleButtonState);
 aboutInput.addEventListener('input', toggleButtonState);
-toggleButtonState();

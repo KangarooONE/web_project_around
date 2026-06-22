@@ -1,6 +1,8 @@
 /* Imports */
 @import url("../vendor/normalize.css");
+
 @import url("../vendor/fonts.css");
+
 @import url("../blocks/header.css");
 @import url("../blocks/profile.css");
 @import url("../blocks/card.css");
@@ -13,4 +15,7 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: #000;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
