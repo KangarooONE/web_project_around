@@ -15,8 +15,8 @@
 
   <main class="page__content">
     
-    <section class="profile">
-      <div class="profile__avatar-wrapper">
+    <section class="profile"  >
+      <div class="profile__avatar-wrapper " >
         <img src="./images/jack.jpg" alt="Jacques Cousteau" class="profile__avatar" />
         <button class="profile__avatar-edit-button" type="button" aria-label="Editar foto"></button>
       </div>
@@ -52,7 +52,7 @@
       <form class="popup__form" name="edit-profile" novalidate>
         <h2 class="popup__title">Editar perfil</h2>
         
-        <input id="name-input" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Nombre" required minlength="2" maxlength="40" />
+        <input id="name-input" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Nombre" required minlength="1" maxlength="40" />
         <span class="popup__error" id="name-input-error"></span>
 
         <input id="about-input" type="text" name="about" class="popup__input popup__input_type_about" placeholder="Acerca de mí" required minlength="2" maxlength="200" />
