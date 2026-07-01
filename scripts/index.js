@@ -103,17 +103,25 @@ function handleEscClose(evt) {
   }
 }
 
+// Controla el estado del botón basado en la validez de sus campos
 function toggleButtonState(inputs, button) {
   const isFormValid = inputs.every(input => input.value.trim() !== '');
   button.disabled = !isFormValid;
   button.classList.toggle(config.classes.inactiveButton, !isFormValid);
 }
 
+// Unifica el chequeo de validación sin duplicar lógica en los listeners de apertura
+function checkFormValidation(formElement) {
+  const inputList = Array.from(formElement.querySelectorAll(config.selectors.formInput));
+  const buttonElement = formElement.querySelector(config.selectors.submitButton);
+  if (inputList.length && buttonElement) {
+    toggleButtonState(inputList, buttonElement);
+  }
+}
 /* ==========================================================================
    4. GENERADORES DE COMPONENTES
    ========================================================================== */
 function createCard(data) {
-  
   const cardElement = cardTemplate.querySelector(config.selectors.cardElement).cloneNode(true);
   const cardImage = cardElement.querySelector(config.selectors.cardImage);
   const cardTitle = cardElement.querySelector(config.selectors.cardTitle);
@@ -121,13 +129,11 @@ function createCard(data) {
   const deleteButton = cardElement.querySelector(config.selectors.cardDeleteButton);
 
   cardImage.addEventListener('click', () => {
-
     popupPreviewImage.src = data.link;
     popupPreviewImage.alt = `Fotografía de ${data.name}`;
     popupPreviewTitle.textContent = data.name;
-
     openPopup(popupImage);
-});
+  });
 
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
@@ -174,22 +180,24 @@ function handleCardFormSubmit(evt) {
 buttonEditProfile.addEventListener('click', () => {
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
-  toggleButtonState([inputName, inputAbout], buttonSaveProfile);
+  checkFormValidation(formProfile); // En vez de toggleButtonState manual, usamos el unificador
   openPopup(popupProfile);
 });
 
 buttonAddCard.addEventListener('click', () => {
   formAddCard.reset();
-  toggleButtonState([inputTitle, inputUrl], buttonSaveCard);
+  checkFormValidation(formAddCard); // En vez de toggleButtonState manual, usamos el unificador
   openPopup(popupAddCard);
 });
 
 document.addEventListener('mousedown', (evt) => {
-  const isOverlay = evt.target.classList.contains(config.classes.popupOpened);
-  const isCloseButton = evt.target.classList.contains(config.classes.closeButton);
+  const target = evt.target;
   
-  if (isOverlay || isCloseButton) {
-    closePopup(evt.target.closest(config.selectors.popupElement));
+ if (target.classList.contains(config.classes.popupOpened)) {
+    closePopup(target);
+  }
+  else if (target.classList.contains(config.classes.closeButton)) {
+    closePopup(target.closest(config.selectors.popupElement));
   }
 });
 
