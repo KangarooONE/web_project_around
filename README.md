@@ -15,7 +15,7 @@
 La plataforma permite gestionar la información del usuario en tiempo real sin recargar el navegador:
 * **Gestión de Perfil:** Apertura y cierre del popup interactivo para editar el nombre de usuario y su biografía.
 * **Sincronización Inteligente:** Al abrir el formulario, este se precarga automáticamente con los datos que ya están visibles en la pantalla.
-* **Validación Quirúrgica (UX):** El botón "Guardar" se bloquea y desbloquea dinámicamente. Si dejas los campos vacíos o pones puros espacios en blanco, la app no te dejará enviar datos inválidos.
+* **Validación (UX):** El botón "Guardar" se bloquea y desbloquea dinámicamente. Si dejas los campos vacíos o pones puros espacios en blanco, la app no te dejará enviar datos inválidos.
 * **Efectos de Interacción:** Hovers controlados y transiciones suaves en botones de likes, edición y cierre.
 
 ---
@@ -48,3 +48,7 @@ Para mí, que funcione no es suficiente; tiene que ser elegante por dentro. La e
 └── 📄 README.md        # Documentación técnica
 ```
 📦 **Mantenido y desarrollado por Juan Delgado** _Proyecto educativo de código abierto enfocado en las buenas prácticas de UI/UX y optimización web._
+
+##Github Pages
+
+https://github.com/KangarooONE/web_project_around
