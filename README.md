@@ -1,6 +1,7 @@
 # 📸 Around the U.S. — Galería Interactiva Responsiva
 
-¡Hola! Soy Juan, y este es mi desarrollo para el proyecto **Around the U.S.** Se trata de una plataforma visual interactiva construida desde cero. Como apasionado por los detalles y el código limpio, enfoqué este sprint en lograr una arquitectura modular casi impecable, un rendimiento veloz y una interfaz de usuario fluida.
+
+¡Hola! Soy Juan, y este es mi desarrollo para el proyecto **Around the U.S.** Se trata de una plataforma visual interactiva construida desde cero. Como apasionado por los detalles y el código limpio, enfoqué este sprint en eliminar redundancias lógicas, centralizar la validación y optimizar la gestión de eventos en el DOM.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -10,23 +11,36 @@
 
 ---
 
-## 🚀 Lo que hace la aplicación (Funcionalidades)
+## 🚀 Funcionalidades
 
-La plataforma permite gestionar la información del usuario en tiempo real sin recargar el navegador:
-* **Gestión de Perfil:** Apertura y cierre del popup interactivo para editar el nombre de usuario y su biografía.
-* **Sincronización Inteligente:** Al abrir el formulario, este se precarga automáticamente con los datos que ya están visibles en la pantalla.
-* **Validación (UX):** El botón "Guardar" se bloquea y desbloquea dinámicamente. Si dejas los campos vacíos o pones puros espacios en blanco, la app no te dejará enviar datos inválidos.
-* **Efectos de Interacción:** Hovers controlados y transiciones suaves en botones de likes, edición y cierre.
+La plataforma permite gestionar una galería dinámica de imágenes y la información del usuario en tiempo real:
+* **Gestión de Perfil:** Edición interactiva de nombre y biografía con precarga automática de datos existentes al abrir el formulario.
+* **Galería Interactiva:** Renderizado inicial de tarjetas, capacidad para añadir nuevas ubicaciones al vuelo, dar "like" a tus favoritas o eliminarlas de la interfaz de usuario.
+* **Popup de Vista Previa:** Visualización ampliada de imágenes con pie de foto dinámico de forma fluida.
+* **Validación Avanzada (UX):** Bloqueo y desbloqueo del botón de guardado en tiempo real frente a campos vacíos o cadenas de texto compuestas únicamente por espacios.
 
 ---
 
-## 📐 Detalles Técnicos y Arquitectura 
-Para mí, que funcione no es suficiente; tiene que ser elegante por dentro. La estructura del código sigue estándares profesionales rigurosos:
+## 📐 Detalles Técnicos y Arquitectura (Mejoras del Sprint)
 
-* **Modularidad CSS (BEM):** Cada componente (`card`, `popup`, `profile`, `header`, `footer`) vive en su propio archivo independiente dentro de la carpeta `blocks/`. El archivo `index.css` orquesta todo limpiamente por cascada.
-* **Optimización de Red:** Configuración avanzada de **fuentes variables** en un solo archivo físico para mitigar peticiones innecesarias al servidor.
-* **Validación Segura con JavaScript:** Control absoluto del DOM mediante búsquedas acotadas dentro de nodos específicos (`popup.querySelector`), mejorando el rendimiento de memoria en comparación con búsquedas globales en el documento.
+Hacer que funcione no es suficiente; el código debe ser mantenible y eficiente. En este sprint se implementaron mejoras críticas bajo estándares profesionales:
 
+* **Unificación de Validación (DRY):** Se eliminó la dispersión lógica mediante el centralizador `checkFormValidation()`. El estado de los botones de envío se sincroniza bajo el mismo canal automatizado, tanto en la escucha pasiva de inputs como en el momento exacto en que se inicializa o resetea un modal.
+* **Cierre Eficiente de Modales (Burbujeo Optimizado):** Se refactorizó la escucha global de clics mediante un árbol de decisiones límpio en `mousedown`. Si el usuario hace clic en el overlay (fondo negro), `evt.target` se gestiona directamente eliminando consultas redundantes de escalado (`.closest()`) en el DOM, reservándolo exclusivamente para los botones específicos de cierre.
+* **Modularidad CSS (BEM):** Cada componente (`card`, `popup`, `profile`, `header`, `footer`) vive en su propio archivo independiente dentro de la carpeta `blocks/`.
+* **Manejo de Errores Nativo:** Integración de escuchas `onerror` en el renderizado de imágenes para sustituir enlaces caídos o rotos con un *placeholder* seguro, evitando rupturas estéticas en la UI.
+
+## 📐 Detalles Técnicos, Arquitectura y Estándares Metodológicos
+
+Este desarrollo se rige bajo rigurosos estándares de la industria y especificaciones modernas:
+
+* **Especificación ECMAScript 6+ (ES6+):** Uso estricto de scope moderno (`const`/`let`), funciones flecha para el control del contexto léxico de `this`, y métodos declarativos de arrays (`.forEach()`, `.every()`) para una lógica más limpia, legible y alineada al paradigma funcional.
+* **Metodología BEM (Block, Element, Modifier):** Arquitectura CSS estructurada internacionalmente bajo el estándar de nomenclatura de bloques (`.popup`), elementos (`.popup__container`) y modificadores (`.popup_opened`). Esto garantiza un aislamiento total de estilos, previniendo colisiones en la cascada y facilitando la reutilización de componentes.
+* **Enfoque Responsive Mobile-First:** Maquetación adaptativa estructurada desde la base para dispositivos móviles pequeños, aplicando los cambios de escala para pantallas de escritorio mediante Media Queries masivos (`@media (min-width: 1024px)`). Esto reduce la carga de procesamiento del navegador en pantallas móviles al evitar la sobreescritura de reglas pesadas.
+* **Principio DRY (Don't Repeat Yourself):** Centralización absoluta de selectores y clases en un objeto de configuración (`config`) al inicio del script. Esto desacopla la lógica de JS del marcado HTML, estableciendo una "única fuente de verdad" y simplificando mantenimientos futuros.
+* **Unificación de Validación Dinámica:** Eliminación de redundancias lógicas mediante el centralizador `checkFormValidation()`. El estado de los botones de envío se sincroniza bajo el mismo canal automatizado, tanto en la escucha pasiva de inputs como en el momento exacto en que se inicializa o resetea un modal.
+* **Cierre Eficiente de Modales (Burbujeo Optimizado):** Refactorización de la escucha global de clics mediante un árbol de decisiones limpio en `mousedown`. Si el usuario hace clic en el overlay (fondo negro), `evt.target` se gestiona directamente eliminando consultas redundantes de escalado (`.closest()`) en el DOM, reservándolo exclusivamente para los botones específicos de cierre.
+* **Manejo de Errores Nativo:** Integración de escuchas `onerror` en el renderizado de imágenes para sustituir enlaces caídos o rotos con un *placeholder* seguro, evitando rupturas estéticas en la UI.
 ---
 
 ## 📁 Estructura Limpia del Directorio

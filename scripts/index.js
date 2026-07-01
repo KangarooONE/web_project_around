@@ -171,7 +171,7 @@ function handleCardFormSubmit(evt) {
   cardsContainer.prepend(createCard({ name: inputTitle.value, link: inputUrl.value }));
   closePopup(popupAddCard);
   formAddCard.reset();
-  toggleButtonState([inputTitle, inputUrl], buttonSaveCard);
+  checkFormValidation(formAddCard);
 }
 
 /* ==========================================================================
