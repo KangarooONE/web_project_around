@@ -58,10 +58,12 @@ const config = {
     popupOpened: 'popup_opened',
     closeButton: 'popup__close-button',
     likeButtonActive: 'card__like-button_active',
-    inactiveButton: 'popup__button_disabled'
+    inactiveButton: 'popup__button_disabled',
+    inputError: 'popup__input_type_error',
+    errorVisible: 'popup__error_visible',
   },
   settings: {
-    placeholderImage: '../images/placeholder.jpg'
+    placeholderImage: '../images/placeholder.jpg',
   }
 };
 
@@ -205,9 +207,12 @@ function checkFormValidation(popupElement) {
   const buttonElement = popupElement.querySelector(config.selectors.submitButton);
   if (inputList.length && buttonElement) {
     toggleButtonState(inputList, buttonElement);
+    // Al verificar el formulario completo (como al abrir un modal),
+    // nos aseguramos de limpiar cualquier rastro de error visual previo.
+    const formElement = popupElement.querySelector('form') || popupElement;
+    inputList.forEach(input => hideInputError(formElement, input, config));
   }
 }
-
 /**
  * Centralizador global para el tratamiento de excepciones de la interfaz.
  * Evita la interrupción del hilo principal de ejecución ante fallos no previstos.
@@ -216,6 +221,57 @@ function checkFormValidation(popupElement) {
 function handleError(error) {
   console.error('Error detectado en la aplicación:', error);
   alert('Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.');
+}
+
+/**
+ * Muestra el mensaje de error de un input específico.
+ * Modifica las clases del input y del contenedor span de error asociado.
+ * @param {HTMLFormElement} formElement - El formulario que contiene los elementos.
+ * @param {HTMLInputElement} inputElement - El campo de texto que falló la validación.
+ * @param {string} errorMessage - El mensaje textual de error provisto por el navegador.
+ * @param {Object} settings - El objeto de configuración centralizado.
+ */
+function showInputError(formElement, inputElement, errorMessage, settings) {
+  // Buscamos el span de error usando el ID del input + el sufijo del estándar de tu HTML
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  
+  if (errorElement) {
+    inputElement.classList.add(settings.classes.inputError);
+    errorElement.textContent = errorMessage; // Inyecta "Rellena este campo", "Introduce una URL válida", etc.
+    errorElement.classList.add(settings.classes.errorVisible);
+  }
+}
+
+/**
+ * Oculta el mensaje de error de un input específico y limpia su estado.
+ * @param {HTMLFormElement} formElement - El formulario que contiene los elementos.
+ * @param {HTMLInputElement} inputElement - El campo de texto que se desea limpiar.
+ * @param {Object} settings - El objeto de configuración centralizado.
+ */
+function hideInputError(formElement, inputElement, settings) {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  
+  if (errorElement) {
+    inputElement.classList.remove(settings.classes.inputError);
+    errorElement.classList.remove(settings.classes.errorVisible);
+    errorElement.textContent = ''; // Limpieza de seguridad
+  }
+}
+
+/**
+ * Evalúa la validez de un input individual utilizando la Constraint Validation API
+ * y delega la respuesta visual correspondientemente.
+ * @param {HTMLFormElement} formElement - El formulario contenedor.
+ * @param {HTMLInputElement} inputElement - El input a evaluar.
+ * @param {Object} settings - El objeto de configuración centralizado.
+ */
+function checkInputValidity(formElement, inputElement, settings) {
+  if (!inputElement.validity.valid) {
+    // Si es inválido, le pasamos el validationMessage nativo del navegador
+    showInputError(formElement, inputElement, inputElement.validationMessage, settings);
+  } else {
+    hideInputError(formElement, inputElement, settings);
+  }
 }
 
 /* ==========================================================================
@@ -361,7 +417,10 @@ function setEventListeners(formElement, settings) {
 
   toggleButtonState(inputList, buttonElement);
 
-  formElement.addEventListener('input', () => {
+  formElement.addEventListener('input', (evt) => {
+    if (evt.target.classList.contains(settings.selectors.formInput.replace('.', ''))) {
+  checkInputValidity(formElement, evt.target, settings); //Valida el input en tiempo real
+    }
     toggleButtonState(inputList, buttonElement);
   });
 }
