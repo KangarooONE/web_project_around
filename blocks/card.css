@@ -1,4 +1,5 @@
 .cards {
+  
   width: 100%;
   max-width: 880px;
   margin-inline: auto;
@@ -21,6 +22,7 @@
 /* Card */
 
 .card {
+  position: relative;
   max-width: 282px;
   margin-inline: auto;
   width: 100%;
@@ -38,9 +40,29 @@
   object-fit: cover;
 }
 
+/* Delete Button */
+.card__delete-button{
+position: absolute;
+top: 18px;
+right: 15px;
+width: 18px;  
+height: 19px;
+background-image: url(../images/Trash.png);
+background-color: transparent;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+cursor: pointer;
+z-index: 10;
+}
+
+.card__delete-button:hover {
+  background-image: url(../images/Trashhover.png);
+}
+
 /* Info */
 
-.card__info {
+.card__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,12 +75,10 @@
 
 .card__title {
   margin: 0;
-
-  color: #000;
   font-size: 24px;
   font-weight: 900;
-  line-height: 1;
-
+  line-height: 1.2;
+  
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -70,17 +90,25 @@
   width: 21px;
   height: 19px;
   border: none;
-
-  background: url(../images/Corazon1.svg) no-repeat center / contain transparent;
+  background-image: url(../images/Corazon1.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-.card__like-button:hover {
-  background-image: url(../images/corazonhover.svg); 
+.card__like-button:not(.card__like-button_active):hover {
+  opacity: 0.6;
 }
 
 .card__like-button_active {
-  background-image: url(../images/CorazondesActive.svg);
+  background-image: url(../images/corazonactivo.png);
+}
+
+.card__like-button_active:hover {
+  opacity: 0.7; 
 }
 
 /* Breakpoint */

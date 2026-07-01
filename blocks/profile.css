@@ -69,7 +69,7 @@
 }
 
 .profile__edit-button:hover {
-  background-image: url(../images/Edit2.png);
+  opacity: 0.6;
 }
 
 .profile__add-button {
@@ -83,8 +83,7 @@
 }
 
 .profile__add-button:hover {
-  border-color: #545454;
-  background-image: url(../images/Add2.png) 
+  opacity: 0.6;
 }
 
 /* ========================================

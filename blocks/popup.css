@@ -1,31 +1,29 @@
 /* ========================================
-   Popup
+   Popup: Estilos Base (Reutilizados para todos)
    ======================================== */
+
+.popup.popup_opened,
+.popup_type_image.popup_opened {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
 
 .popup {
   position: fixed;
   inset: 0;
   z-index: 1000;
-
   display: none;
   justify-content: center;
   align-items: center;
-
   background: rgba(0, 0, 0, 0.5);
 }
-
-.popup_opened {
-  display: flex;
-}
-
-/* Container */
 
 .popup__container {
   position: relative;
   box-sizing: border-box;
   width: 282px;
   padding: 25px 22px;
-
   background-color: #fff;
   border-radius: 10px;
 }
@@ -46,7 +44,6 @@
   border: none;
   border-bottom: 1px solid #c4c4c4;
   outline: none;
-
   color: #000000;
   font-size: 14px;
 }
@@ -56,27 +53,32 @@
   opacity: 1;
 }
 
-.popup__input_type_name {
+.popup__input_type_name,
+.popup__input_type_title {
   margin-bottom: 30px;
 }
 
-.popup__input_type_about {
+.popup__input_type_about,
+.popup__input_type_url {
   margin-bottom: 46px;
 }
 
 /* Buttons */
 
-.popup__button {
+.popup__button  {
   width: 100%;
   margin-bottom: 0;
   padding: 14px 92px;
   border: 1px solid #000000;
   border-radius: 2px;
-  
   background-color: #000000;
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+  transition: opacity 0.1s ease;
+}
+.popup__button:hover{
+opacity: 0.8;
 }
 
 .popup__button:disabled {
@@ -91,21 +93,60 @@
 .popup__close-button {
   position: absolute;
   top: -50px;
-  right: 0px;
+  right: 10px;
   width: 26px;
   height: 26px;
   border: none;
-
-  background: url("../images/Close Icon (2).png") no-repeat center / contain transparent;
+  background: url("../images/Close.png") no-repeat center / contain transparent;
   cursor: pointer;
+  transition: opacity 0.1s ease;
 }
 
 .popup__close-button:hover {
-  background-image: url(../images/Hoverclose.png);
+  opacity: 0.6;
 }
 
+.popup_type_image {
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+   background-color: rgba(0, 0, 0, 0.9);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.popup__image-container {
+  position: relative;
+  max-width: 75vw;
+  max-height: 90vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__image {
+  max-width: 100%;
+  max-height: 75vh; 
+  object-fit: contain;
+  border-radius: 5px;
+  display: block;
+}
+
+.popup__caption {
+  margin: 10px 0 0 0;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  align-self: flex-start;
+}
+
+
 /* ========================================
-   Desktop
+   Responsive Design
    ======================================== */
 
 @media (min-width: 1024px) {
@@ -130,8 +171,15 @@
   .popup__button {
     font-size: 18px;
   }
+  
+  .popup__container .popup__close-button {
+    top: -40px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+  }
 
-  .popup__close-button {
+ .popup__image-container .popup__close-button {
     top: -40px;
     right: -40px;
     width: 40px;

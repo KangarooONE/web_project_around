@@ -35,55 +35,7 @@
     
     <section class="cards">
       <ul class="cards__list">
-        
-        <li class="card">
-          <img src="./images/Yosemite.jpg" alt="Valle de Yosemite" class="card__image" />
-          <div class="card__info">
-            <h2 class="card__title">Valle de Yosemite</h2>
-            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Louise.jpg" alt="Lago Louise" class="card__image" />
-          <div class="card__info">
-            <h2 class="card__title">Lago Louise</h2>
-            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Latemar.jpg" alt="Latemar" class="card__image" />
-          <div class="card__info">
-            <h2 class="card__title">Latemar</h2>
-            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Calvas.jpg" alt="Montañas Calvas" class="card__image" />
-          <div class="card__info">
-            <h2 class="card__title">Montañas Calvas</h2>
-            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Braies.jpg" alt="Lago di Braies" class="card__image" />
-          <div class="card__info">
-            <h2 class="card__title">Lago di Braies</h2>
-            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Vanois.jpg" alt="Vanois National Park" class="card__image" />
-          <div class="card__info">
-            <h2 class="card__title">Vanois National Park</h2>
-            <button class="card__like-button" type="button" aria-label="Me gusta"></button>
-          </div>
-        </li>
-
+    <!------CardsJavascript------>
       </ul>
     </section>
 
@@ -97,7 +49,7 @@
     <div class="popup__container">
       <button type="button" class="popup__close-button" aria-label="Cerrar ventana"></button>
       
-      <form class="popup__form" name="editProfileForm" novalidate>
+      <form class="popup__form" name="edit-profile" novalidate>
         <h2 class="popup__title">Editar perfil</h2>
         
         <input id="name-input" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Nombre" required minlength="2" maxlength="40" />
@@ -111,6 +63,56 @@
     </div>
   </div>
 
-  <script type="module" src="./scripts/index.js"></script>
+  <div class="popup popup_type_add-card">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button" aria-label="Cerrar"></button>
+      
+      <h2 class="popup__title">Nuevo lugar</h2>
+      
+      <form class="popup__form" name="add-card" novalidate>
+        <input 
+          class="popup__input popup__input_type_title" 
+          type="text" 
+          name="title" 
+          placeholder="Título" 
+          required 
+          minlength="2" 
+          maxlength="30"
+        />
+        <input 
+          class="popup__input popup__input_type_url" 
+          type="url" 
+          name="link" 
+          placeholder="Enlace a la imagen" 
+          required
+        />
+        <button class="popup__button" type="submit" disabled>Crear</button>
+      </form>
+    </div>
+  </div>
+
+  <template id="card-template">
+  <li class="card">
+    <img src="" alt="" class="card__image" />
+    
+    <button class="card__delete-button" type="button" aria-label="Eliminar tarjeta"></button>
+    
+    <div class="card__content">
+      <h2 class="card__title"></h2>
+      
+      <button class="card__like-button" type="button" aria-label="Me gusta"></button>
+    </div>
+  </li>
+</template>
+
+  <div class="popup popup_type_image">
+      <div class="popup__image-container">
+        <button type="button" class="popup__close-button" aria-label="Cerrar ventana"></button>
+        <img src="#" alt="" class="popup__image">
+        <p class="popup__caption"></p>
+      </div>
+  </div>
+
+  <script type="module" src="./scripts/index.js" defer></script>
 </body>
 </html>
