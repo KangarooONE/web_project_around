@@ -1,23 +1,45 @@
-/* ========================================
-   Popup: Estilos Base (Reutilizados para todos)
-   ======================================== */
-
-.popup.popup_opened,
-.popup_type_image.popup_opened {
-  display: flex;
-  visibility: visible;
-  opacity: 1;
-}
+/* ==========================================================================
+   1. ESTRUCTURA Y BASE (Popups)
+   ========================================================================== */
 
 .popup {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup_type_image {
+  position: fixed;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.popup_type_image.popup_opened {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* ==========================================================================
+   2. CONTENEDORES Y ELEMENTOS INTERNOS
+   ========================================================================== */
 
 .popup__container {
   position: relative;
@@ -28,15 +50,41 @@
   border-radius: 10px;
 }
 
-/* Title */
-
 .popup__title {
   margin: 0 0 76px;
   font-size: 18px;
   font-weight: 900;
 }
 
-/* Inputs */
+.popup__image-container {
+  position: relative;
+  max-width: 75vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__image {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 5px;
+  display: block;
+}
+
+.popup__caption {
+  margin: 10px 0 0 0;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   3. FORMULARIOS, INPUTS Y ERRORES
+   ========================================================================== */
 
 .popup__input {
   width: 100%;
@@ -53,21 +101,37 @@
   opacity: 1;
 }
 
-.popup__input_type_name,
-.popup__input_type_title {
-  margin-bottom: 30px;
+.popup__input_type_name, .popup__input_type_title { margin-bottom: 7px; }
+.popup__input_type_about, .popup__input_type_url { margin-bottom: 7px; }
+
+.popup__error {
+  font-size: 12px;
+  line-height: 1;
+  color: #FF0000;
+  display: block;
+  margin: 0px;
+  margin-bottom: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.popup__input_type_about,
-.popup__input_type_url {
-  margin-bottom: 46px;
+.popup__input_type_error {
+  border-bottom: 1px solid #FF0000;
+  color: #FF0000;
 }
 
-/* Buttons */
+.popup__error_visible {
+  opacity: 1;
+  visibility: visible;
+}
 
-.popup__button  {
+/* ==========================================================================
+   4. BOTONES
+   ========================================================================== */
+
+.popup__button {
   width: 100%;
-  margin-bottom: 0;
   padding: 14px 92px;
   border: 1px solid #000000;
   border-radius: 2px;
@@ -77,18 +141,14 @@
   cursor: pointer;
   transition: opacity 0.1s ease;
 }
-.popup__button:hover{
-opacity: 0.8;
-}
 
+.popup__button:hover { opacity: 0.8; }
 .popup__button:disabled {
   border-color: #c4c4c4;
   background-color: #fff;
   color: #c4c4c4;
   cursor: default;
 }
-
-/* Close Button */
 
 .popup__close-button {
   position: absolute;
@@ -102,92 +162,52 @@ opacity: 0.8;
   transition: opacity 0.1s ease;
 }
 
-.popup__close-button:hover {
-  opacity: 0.6;
-}
+.popup__close-button:hover { opacity: 0.6; }
 
-.popup_type_image {
+/* ==========================================================================
+   5. TOAST NOTIFICATIONS
+   ========================================================================== */
+
+.toast-container {
   position: fixed;
-  z-index: 1000;
-  display: none;
-  justify-content: center;
-  align-items: center;
-   background-color: rgba(0, 0, 0, 0.9);
-  padding: 40px;
-  box-sizing: border-box;
-}
-
-.popup__image-container {
-  position: relative;
-  max-width: 75vw;
-  max-height: 90vh; 
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
 }
 
-.popup__image {
-  max-width: 100%;
-  max-height: 75vh; 
-  object-fit: contain;
-  border-radius: 5px;
-  display: block;
+.toast {
+  box-sizing: border-box;
+  min-width: 250px;
+  max-width: 350px;
+  padding: 14px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.popup__caption {
-  margin: 10px 0 0 0;
-  color: #fff;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1;
-  align-self: flex-start;
+.toast_visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.popup__input_type_error {
-  border-bottom: 1px solid #FF0000; /* Línea inferior roja (o el color de alerta de tu diseño) */
-  color: #FF0000;                   /* Opcional: cambia el texto que escribe el usuario a rojo */
-}
+.toast_type_error { border-left: 4px solid #FF0000; }
 
-
-
-/* ========================================
-   Responsive Design
-   ======================================== */
+/* ==========================================================================
+   6. RESPONSIVE DESIGN
+   ========================================================================== */
 
 @media (min-width: 1024px) {
-
-  .popup__container {
-    width: 430px;
-    padding: 34px 36px 36.51px;
-  }
-
-  .popup__title {
-    margin: 0 0 54px;
-    font-size: 24px;
-  }
-  .popup__input {
-    padding-bottom: 13px;
-  }
-
-  .popup__input_type_about {
-    margin-bottom: 48px;
-  }
-
-  .popup__button {
-    font-size: 18px;
-  }
-  
-  .popup__container .popup__close-button {
-    top: -40px;
-    right: -40px;
-    width: 40px;
-    height: 40px;
-  }
-
- .popup__image-container .popup__close-button {
-    top: -40px;
-    right: -40px;
-    width: 40px;
-    height: 40px;
-  }
+  .popup__container { width: 430px; padding: 34px 36px 36.51px; }
+  .popup__title { margin: 0 0 54px; font-size: 24px; }
+  .popup__button { font-size: 18px; }
+  .popup__close-button { top: -40px; right: -40px; width: 40px; height: 40px; }
 }
