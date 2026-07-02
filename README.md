@@ -68,4 +68,4 @@
 📦 **Mantenido y desarrollado por Juan Delgado** _Proyecto educativo de código abierto enfocado en las buenas prácticas de UI/UX y optimización web._
 
 ## Github Pages
-[https://github.com/KangarooONE/web_project_around](https://github.com/KangarooONE/web_project_around)
+[https://kangarooone.github.io/web_project_around/](https://kangarooone.github.io/web_project_around/)
