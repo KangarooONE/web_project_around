@@ -22,7 +22,7 @@
 
 ### Más allá de la funcionalidad, el proyecto prioriza la calidad del código mediante prácticas que garantizan un desarrollo profesional:
 
-- #### **Metodología BEM (Block, Element, Modifier):** La arquitectura CSS sigue el estándar internacional de nomenclatura (ej. .popup__container). Esto permite aislar estilos, prevenir colisiones en la cascada y facilita la reutilización de componentes de forma modular.
+- #### **Metodología BEM (Block, Element, Modifier):** La arquitectura CSS sigue el estándar internacional de nomenclatura. Esto permite aislar estilos, prevenir colisiones en la cascada y facilita la reutilización de componentes de forma modular.
 
 - #### **Organización Modular:** El proyecto está estructurado para ser escalable, separando los estilos (blocks/), la lógica interactiva (scripts/) y los activos, lo que facilita el mantenimiento a largo plazo.
 
