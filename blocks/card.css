@@ -1,13 +1,18 @@
+/* ==========================================================================
+   Componente: Cards (Galería de Tarjetas de Lugares)
+   Estructura basada en metodología BEM
+   ========================================================================== */
+
+/* Bloque contenedor externo de la sección de tarjetas */
 .cards {
   width: 100%;
   max-width: 880px;
   margin-inline: auto;
-  padding-inline: 19px; 
+  padding-inline: 19px;
   box-sizing: border-box;
 }
 
-/* Cards List */
-
+/* Elemento Lista: Rejilla adaptable (Grid) para el catálogo */
 .cards__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
@@ -17,8 +22,7 @@
   list-style: none;
 }
 
-/* Card */
-
+/* Bloque individual de Tarjeta */
 .card {
   position: relative;
   max-width: 282px;
@@ -30,8 +34,7 @@
   cursor: pointer;
 }
 
-/* Image */
-
+/* Imagen de fondo del lugar */
 .card__image {
   display: block;
   width: 100%;
@@ -39,28 +42,27 @@
   object-fit: cover;
 }
 
-/* Delete Button */
-.card__delete-button{
-position: absolute;
-top: 18px;
-right: 15px;
-width: 18px;  
-height: 19px;
-background-image: url(../images/Trash.png);
-background-color: transparent;
-background-repeat: no-repeat;
-background-position: center;
-border: none;
-cursor: pointer;
-z-index: 10;
+/* Botón interactivo para eliminar la tarjeta */
+.card__delete-button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 18px;
+  height: 19px;
+  background-image: url(../images/Trash.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .card__delete-button:hover {
   background-image: url(../images/Trashhover.png);
 }
 
-/* Info */
-
+/* Bloque inferior de información (Pie de la tarjeta) */
 .card__content {
   display: flex;
   justify-content: space-between;
@@ -70,21 +72,18 @@ z-index: 10;
   box-sizing: border-box;
 }
 
-/* Title */
-
+/* Título del lugar (Control estricto de desbordamiento de texto) */
 .card__title {
   margin: 0;
   font-size: 24px;
   font-weight: 900;
   line-height: 1.2;
-  
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Like Button */
-
+/* Botón de interacción de "Me gusta" (Like) */
 .card__like-button {
   width: 21px;
   height: 19px;
@@ -93,7 +92,6 @@ z-index: 10;
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
-  border: none;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -102,17 +100,20 @@ z-index: 10;
   opacity: 0.6;
 }
 
+/* Modificador: Estado activo del botón de Me gusta */
 .card__like-button_active {
   background-image: url(../images/corazonactivo.png);
 }
 
 .card__like-button_active:hover {
-  opacity: 0.7; 
+  opacity: 0.7;
 }
 
-/* Breakpoint */
-
+/* ==========================================================================
+   Diseño Responsivo: Cards (Escritorio / 1024px+)
+   ========================================================================== */
 @media (min-width: 1024px) {
+  /* Forzado a rejilla simétrica de 3 columnas en pantallas grandes */
   .cards__list {
     grid-template-columns: repeat(3, 1fr);
   }

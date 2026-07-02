@@ -1,7 +1,9 @@
-/* ========================================
-   Footer
-   ======================================== */
+/* ==========================================================================
+   Componente: Footer (Pie de Página)
+   Estructura basada en metodología BEM
+   ========================================================================== */
 
+/* Bloque principal del pie de página con límites de ancho y centrado */
 .footer {
   width: 100%;
   max-width: 880px;
@@ -11,6 +13,7 @@
   box-sizing: border-box;
 }
 
+/* Elemento: Texto de derechos de autor (Copyright) */
 .footer__copyright {
   margin: 0;
   color: #545454;

@@ -1,21 +1,37 @@
-/* Imports */
-@import url("../vendor/normalize.css");
+/* ==========================================================================
+   Archivo Principal de Estilos (index.css / global.css)
+   Punto de entrada para la arquitectura CSS modular del proyecto
+   ========================================================================== */
 
+/* --- 1. Dependencias y Recursos Externos (Vendor) --- */
+@import url("../vendor/normalize.css");
 @import url("../vendor/fonts.css");
 
+/* --- 2. Estilos de Componentes Modulares (Blocks) --- */
 @import url("../blocks/header.css");
 @import url("../blocks/profile.css");
 @import url("../blocks/card.css");
 @import url("../blocks/footer.css");
 @import url("../blocks/popup.css");
 
-/* Base global */
+/* --- 3. Variables Globales --- */
+:root {
+  --color-primary: #000000;
+  --color-error: #FF0000;
+  --transition-speed: 0.3s;
+}
+
+/* ==========================================================================
+   4. Estilos Base Globales (Reseteo y Tipografía)
+   ========================================================================== */
+
 html,
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: #000;
 
+  /* Suavizado de fuentes optimizado para renderizado en navegadores modernos */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

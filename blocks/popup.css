@@ -1,7 +1,9 @@
 /* ==========================================================================
-   1. ESTRUCTURA Y BASE (Popups)
+   Componente: Popups (Modales Universales)
+   Estructura basada en metodología BEM
    ========================================================================== */
 
+/* --- Estructura Base y Capas de Fondo --- */
 .popup {
   position: fixed;
   inset: 0;
@@ -15,32 +17,13 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Estado activo global (Apertura) */
 .popup_opened {
   visibility: visible;
   opacity: 1;
 }
 
-.popup_type_image {
-  position: fixed;
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 40px;
-  box-sizing: border-box;
-}
-
-.popup_type_image.popup_opened {
-  display: flex;
-  visibility: visible;
-  opacity: 1;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-/* ==========================================================================
-   2. CONTENEDORES Y ELEMENTOS INTERNOS
-   ========================================================================== */
-
+/* --- Contenedor Interno Estándar (Formularios) --- */
 .popup__container {
   position: relative;
   box-sizing: border-box;
@@ -54,6 +37,117 @@
   margin: 0 0 76px;
   font-size: 18px;
   font-weight: 900;
+}
+
+/* --- Elementos de Formulario (Inputs) --- */
+.popup__input {
+  width: 100%;
+  padding-bottom: 9px;
+  border: none;
+  border-bottom: 1px solid #c4c4c4;
+  outline: none;
+  color: #000000;
+  font-size: 14px;
+}
+
+.popup__input::placeholder {
+  color: #c4c4c4;
+  opacity: 1;
+}
+
+/* Espaciados específicos por tipo de input */
+.popup__input_type_name,
+.popup__input_type_title {
+  margin-bottom: 7px;
+}
+
+.popup__input_type_about,
+.popup__input_type_url {
+  margin-bottom: 7px;
+}
+
+/* --- Mensajes de Validación y Estados de Error --- */
+.popup__error {
+  font-size: 12px;
+  line-height: 1;
+  color: #FF0000;
+  display: block;
+  margin: 0px;
+  margin-bottom: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.popup__input_type_error {
+  border-bottom: 1px solid #FF0000;
+  color: #FF0000;
+}
+
+/* Clase de activación dinámica de errores por JS */
+.popup__error_visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Interacciones (Botones de Envío y Cierre) --- */
+.popup__button {
+  width: 100%;
+  margin-bottom: 0;
+  padding: 14px 92px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.1s ease;
+}
+
+.popup__button:hover {
+  opacity: 0.8;
+}
+
+.popup__button:disabled {
+  border-color: #c4c4c4;
+  background-color: #fff;
+  color: #c4c4c4;
+  cursor: default;
+}
+
+.popup__close-button {
+  position: absolute;
+  top: -50px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: url("../images/Close.png") no-repeat center / contain transparent;
+  cursor: pointer;
+  transition: opacity 0.1s ease;
+}
+
+.popup__close-button:hover {
+  opacity: 0.6;
+}
+
+/* --- Variante de Popup: Vista Ampliada de Imagen --- */
+.popup_type_image {
+  position: fixed;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Apertura animada específica para el popup de imagen */
+.popup_type_image.popup_opened {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .popup__image-container {
@@ -82,92 +176,7 @@
   align-self: flex-start;
 }
 
-/* ==========================================================================
-   3. FORMULARIOS, INPUTS Y ERRORES
-   ========================================================================== */
-
-.popup__input {
-  width: 100%;
-  padding-bottom: 9px;
-  border: none;
-  border-bottom: 1px solid #c4c4c4;
-  outline: none;
-  color: #000000;
-  font-size: 14px;
-}
-
-.popup__input::placeholder {
-  color: #c4c4c4;
-  opacity: 1;
-}
-
-.popup__input_type_name, .popup__input_type_title { margin-bottom: 7px; }
-.popup__input_type_about, .popup__input_type_url { margin-bottom: 7px; }
-
-.popup__error {
-  font-size: 12px;
-  line-height: 1;
-  color: #FF0000;
-  display: block;
-  margin: 0px;
-  margin-bottom: 24px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-.popup__input_type_error {
-  border-bottom: 1px solid #FF0000;
-  color: #FF0000;
-}
-
-.popup__error_visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ==========================================================================
-   4. BOTONES
-   ========================================================================== */
-
-.popup__button {
-  width: 100%;
-  padding: 14px 92px;
-  border: 1px solid #000000;
-  border-radius: 2px;
-  background-color: #000000;
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  transition: opacity 0.1s ease;
-}
-
-.popup__button:hover { opacity: 0.8; }
-.popup__button:disabled {
-  border-color: #c4c4c4;
-  background-color: #fff;
-  color: #c4c4c4;
-  cursor: default;
-}
-
-.popup__close-button {
-  position: absolute;
-  top: -50px;
-  right: 10px;
-  width: 26px;
-  height: 26px;
-  border: none;
-  background: url("../images/Close.png") no-repeat center / contain transparent;
-  cursor: pointer;
-  transition: opacity 0.1s ease;
-}
-
-.popup__close-button:hover { opacity: 0.6; }
-
-/* ==========================================================================
-   5. TOAST NOTIFICATIONS
-   ========================================================================== */
-
+/* --- Sistema de Notificaciones Dinámicas (Toasts) --- */
 .toast-container {
   position: fixed;
   top: 20px;
@@ -194,20 +203,53 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Clase de activación para el Toast */
 .toast_visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.toast_type_error { border-left: 4px solid #FF0000; }
+/* Variante del Toast para estados de error */
+.toast_type_error {
+  border-left: 4px solid var(--color-error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
 
 /* ==========================================================================
-   6. RESPONSIVE DESIGN
+   Diseño Responsivo: Popups (Escritorio / 1024px+)
    ========================================================================== */
-
 @media (min-width: 1024px) {
-  .popup__container { width: 430px; padding: 34px 36px 36.51px; }
-  .popup__title { margin: 0 0 54px; font-size: 24px; }
-  .popup__button { font-size: 18px; }
-  .popup__close-button { top: -40px; right: -40px; width: 40px; height: 40px; }
+  .popup__container {
+    width: 430px;
+    padding: 34px 36px 36.51px;
+  }
+
+  .popup__title {
+    margin: 0 0 54px;
+    font-size: 24px;
+  }
+
+  .popup__button {
+    font-size: 18px;
+  }
+
+  .popup__container .popup__close-button {
+    top: -40px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .popup__image-container .popup__close-button {
+    top: -40px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+  }
 }

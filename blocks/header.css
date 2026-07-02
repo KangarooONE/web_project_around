@@ -1,23 +1,33 @@
-.header{
+/* ==========================================================================
+   Componente: Header (Encabezado Principal)
+   Estructura basada en metodología BEM
+   ========================================================================== */
+
+/* Bloque principal del encabezado */
+.header {
   padding: 28px 27px;
   border-bottom: 1px solid #545454;
 }
 
-.header__logo{
+/* Elemento: Logotipo de la marca */
+.header__logo {
   width: 126px;
   height: 24px;
   object-fit: contain;
 }
 
+/* ==========================================================================
+   Diseño Responsivo: Header (Escritorio / 1024px+)
+   ========================================================================== */
 @media (min-width: 1024px) {
-    .header {
-      max-width: 880px;
-      margin-inline: auto;
-      padding: 45px 0;
-    }
+  .header {
+    max-width: 880px;
+    margin-inline: auto;
+    padding: 45px 0;
+  }
 
-    .header__logo {
-      width: 173px;
-      height: 33px;
-    }
+  .header__logo {
+    width: 173px;
+    height: 33px;
+  }
 }
