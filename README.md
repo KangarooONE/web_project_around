@@ -1,7 +1,7 @@
 # 📸 Around the U.S. — Galería Interactiva Responsiva
 
 
-¡Hola! Soy Juan Delgado, y este es mi desarrollo para el proyecto **Around the U.S.** Se trata de una plataforma visual interactiva construida desde cero. Como apasionado por los detalles y el código limpio, enfoqué este sprint en eliminar redundancias lógicas, centralizar la validación y optimizar la gestión de eventos en el DOM.
+¡Hola! Soy Juan, y este es mi desarrollo para el proyecto **Around the U.S.** Se trata de una plataforma visual interactiva construida desde cero. Como apasionado por los detalles y el código limpio, enfoqué este sprint en eliminar redundancias lógicas, centralizar la validación y optimizar la gestión de eventos en el DOM.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
